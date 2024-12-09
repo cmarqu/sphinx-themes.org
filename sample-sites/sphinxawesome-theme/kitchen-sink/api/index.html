@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+
+<html :class="{'dark': darkMode === 'dark' || (darkMode === 'system' &amp;&amp; window.matchMedia('(prefers-color-scheme: dark)').matches)}" class="scroll-smooth" data-content_root="../../" lang="en" x-data="{ darkMode: localStorage.getItem('darkMode') || localStorage.setItem('darkMode', 'system'), activeSection: '' }" x-init="$watch('darkMode', val =&gt; localStorage.setItem('darkMode', val))">
+<head>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta charset="utf-8"/>
+<meta content="white" media="(prefers-color-scheme: light)" name="theme-color"/>
+<meta content="black" media="(prefers-color-scheme: dark)" name="theme-color"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>API documentation | Awesome</title>
+<meta content="API documentation | Awesome" property="og:title"/>
+<meta content="API documentation | Awesome" name="twitter:title"/>
+<link href="../../_static/pygments.css?v=8d216cef" rel="stylesheet" type="text/css"/>
+<link href="../../_static/theme.css?v=42baaae4" rel="stylesheet" type="text/css"/>
+<link href="../../search/" rel="search" title="Search"/>
+<link href="../../genindex/" rel="index" title="Index"/>
+<link href="../domains/api_c_domain/" rel="next" title="Directives in the C domain"/>
+<link href="../admonitions/" rel="prev" title="Admonitions"/>
+<script>
+    <!-- Prevent Flash of wrong theme -->
+      const userPreference = localStorage.getItem('darkMode');
+      let mode;
+      if (userPreference === 'dark' || window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        mode = 'dark';
+        document.documentElement.classList.add('dark');
+      } else {
+        mode = 'light';
+      }
+      if (!userPreference) {localStorage.setItem('darkMode', mode)}
+    </script>
+</head>
+<body :class="{ 'overflow-hidden': showSidebar }" class="min-h-screen font-sans antialiased bg-background text-foreground" x-data="{ showSidebar: false, showScrollTop: false }">
+<div @click.self="showSidebar = false" class="fixed inset-0 z-50 overflow-hidden bg-background/80 backdrop-blur-sm md:hidden" x-cloak="" x-show="showSidebar"></div><div class="relative flex flex-col min-h-screen" id="page"><a class="absolute top-0 left-0 z-[100] block bg-background p-4 text-xl transition -translate-x-full opacity-0 focus:translate-x-0 focus:opacity-100" href="#content">
+      Skip to content
+    </a><header class="sticky top-0 z-40 w-full border-b shadow-sm border-border supports-backdrop-blur:bg-background/60 bg-background/95 backdrop-blur"><div class="container flex items-center h-14">
+<div class="hidden mr-4 md:flex">
+<a class="flex items-center mr-6" href="../../"><span class="hidden font-bold sm:inline-block text-clip whitespace-nowrap">Awesome</span>
+</a></div><button @click="showSidebar = true" class="inline-flex items-center justify-center h-10 px-0 py-2 mr-2 text-base font-medium transition-colors rounded-md hover:text-accent-foreground hover:bg-transparent md:hidden" type="button">
+<svg aria-hidden="true" fill="currentColor" height="24" viewbox="0 96 960 960" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M152.587 825.087q-19.152 0-32.326-13.174t-13.174-32.326q0-19.152 13.174-32.326t32.326-13.174h440q19.152 0 32.326 13.174t13.174 32.326q0 19.152-13.174 32.326t-32.326 13.174h-440Zm0-203.587q-19.152 0-32.326-13.174T107.087 576q0-19.152 13.174-32.326t32.326-13.174h320q19.152 0 32.326 13.174T518.087 576q0 19.152-13.174 32.326T472.587 621.5h-320Zm0-203.587q-19.152 0-32.326-13.174t-13.174-32.326q0-19.152 13.174-32.326t32.326-13.174h440q19.152 0 32.326 13.174t13.174 32.326q0 19.152-13.174 32.326t-32.326 13.174h-440ZM708.913 576l112.174 112.174q12.674 12.674 12.674 31.826t-12.674 31.826Q808.413 764.5 789.261 764.5t-31.826-12.674l-144-144Q600 594.391 600 576t13.435-31.826l144-144q12.674-12.674 31.826-12.674t31.826 12.674q12.674 12.674 12.674 31.826t-12.674 31.826L708.913 576Z"></path>
+</svg>
+<span class="sr-only">Toggle navigation menu</span>
+</button>
+<div class="flex items-center justify-between flex-1 space-x-2 sm:space-x-4 md:justify-end">
+<div class="flex-1 w-full md:w-auto md:flex-none"><form @keydown.k.window.meta="$refs.search.focus()" action="../../search/" class="relative flex items-center group" id="searchbox" method="get">
+<input aria-label="Search the docs" class="inline-flex items-center font-medium transition-colors bg-transparent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background border border-input hover:bg-accent focus:bg-accent hover:text-accent-foreground focus:text-accent-foreground hover:placeholder-accent-foreground py-2 px-4 relative h-9 w-full justify-start rounded-[0.5rem] text-sm text-muted-foreground sm:pr-12 md:w-40 lg:w-64" id="search-input" name="q" placeholder="Search ..." type="search" x-ref="search"/>
+<kbd class="pointer-events-none absolute right-1.5 top-2 hidden h-5 select-none text-muted-foreground items-center gap-1 rounded border border-border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex group-hover:bg-accent group-hover:text-accent-foreground">
+<span class="text-xs">⌘</span>
+    K
+  </kbd>
+</form>
+</div>
+<nav class="flex items-center space-x-1">
+<button @click="darkMode = darkMode === 'light' ? 'dark' : 'light'" aria-label="Color theme switcher" class="relative inline-flex items-center justify-center px-0 text-sm font-medium transition-colors rounded-md hover:bg-accent hover:text-accent-foreground h-9 w-9" type="button">
+<svg class="absolute transition-all scale-100 rotate-0 dark:-rotate-90 dark:scale-0" fill="currentColor" height="24" viewbox="0 96 960 960" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M480 685q45.456 0 77.228-31.772Q589 621.456 589 576q0-45.456-31.772-77.228Q525.456 467 480 467q-45.456 0-77.228 31.772Q371 530.544 371 576q0 45.456 31.772 77.228Q434.544 685 480 685Zm0 91q-83 0-141.5-58.5T280 576q0-83 58.5-141.5T480 376q83 0 141.5 58.5T680 576q0 83-58.5 141.5T480 776ZM80 621.5q-19.152 0-32.326-13.174T34.5 576q0-19.152 13.174-32.326T80 530.5h80q19.152 0 32.326 13.174T205.5 576q0 19.152-13.174 32.326T160 621.5H80Zm720 0q-19.152 0-32.326-13.174T754.5 576q0-19.152 13.174-32.326T800 530.5h80q19.152 0 32.326 13.174T925.5 576q0 19.152-13.174 32.326T880 621.5h-80Zm-320-320q-19.152 0-32.326-13.174T434.5 256v-80q0-19.152 13.174-32.326T480 130.5q19.152 0 32.326 13.174T525.5 176v80q0 19.152-13.174 32.326T480 301.5Zm0 720q-19.152 0-32.326-13.17Q434.5 995.152 434.5 976v-80q0-19.152 13.174-32.326T480 850.5q19.152 0 32.326 13.174T525.5 896v80q0 19.152-13.174 32.33-13.174 13.17-32.326 13.17ZM222.174 382.065l-43-42Q165.5 327.391 166 308.239t13.174-33.065q13.435-13.674 32.587-13.674t32.065 13.674l42.239 43q12.674 13.435 12.555 31.706-.12 18.272-12.555 31.946-12.674 13.674-31.445 13.413-18.772-.261-32.446-13.174Zm494 494.761-42.239-43q-12.674-13.435-12.674-32.087t12.674-31.565Q686.609 756.5 705.38 757q18.772.5 32.446 13.174l43 41.761Q794.5 824.609 794 843.761t-13.174 33.065Q767.391 890.5 748.239 890.5t-32.065-13.674Zm-42-494.761Q660.5 369.391 661 350.62q.5-18.772 13.174-32.446l41.761-43Q728.609 261.5 747.761 262t33.065 13.174q13.674 13.435 13.674 32.587t-13.674 32.065l-43 42.239q-13.435 12.674-31.706 12.555-18.272-.12-31.946-12.555Zm-495 494.761Q165.5 863.391 165.5 844.239t13.674-32.065l43-42.239q13.435-12.674 32.087-12.674t31.565 12.674Q299.5 782.609 299 801.38q-.5 18.772-13.174 32.446l-41.761 43Q231.391 890.5 212.239 890t-33.065-13.174ZM480 576Z"></path>
+</svg>
+<svg class="absolute transition-all scale-0 rotate-90 dark:rotate-0 dark:scale-100" fill="currentColor" height="24" viewbox="0 96 960 960" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M480 936q-151 0-255.5-104.5T120 576q0-138 90-239.5T440 218q25-3 39 18t-1 44q-17 26-25.5 55t-8.5 61q0 90 63 153t153 63q31 0 61.5-9t54.5-25q21-14 43-1.5t19 39.5q-14 138-117.5 229T480 936Zm0-80q88 0 158-48.5T740 681q-20 5-40 8t-40 3q-123 0-209.5-86.5T364 396q0-20 3-40t8-40q-78 32-126.5 102T200 576q0 116 82 198t198 82Zm-10-270Z"></path>
+</svg>
+</button>
+</nav>
+</div>
+</div>
+</header>
+<div class="flex-1"><div class="container flex-1 items-start md:grid md:grid-cols-[220px_minmax(0,1fr)] md:gap-6 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-10"><aside :aria-hidden="!showSidebar" :class="{ 'translate-x-0': showSidebar }" class="fixed inset-y-0 left-0 md:top-14 z-50 md:z-30 bg-background md:bg-transparent transition-all duration-100 -translate-x-full md:translate-x-0 ml-0 p-6 md:p-0 md:-ml-2 md:h-[calc(100vh-3.5rem)] w-5/6 md:w-full shrink-0 overflow-y-auto border-r border-border md:sticky" id="left-sidebar">
+<a class="!justify-start text-sm md:!hidden bg-background" href="../../"><span class="font-bold text-clip whitespace-nowrap">Awesome</span>
+</a>
+<div class="relative overflow-hidden md:overflow-auto my-4 md:my-0 h-[calc(100vh-8rem)] md:h-auto">
+<div class="overflow-y-auto h-full w-full relative pr-6"><nav class="table w-full min-w-full my-6 lg:my-8">
+<ul class="current">
+<li class="toctree-l1 current" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="reference internal expandable" href="../">Kitchen Sink<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul class="current" x-show="expanded">
+<li class="toctree-l2"><a class="reference internal" href="../admonitions/">Admonitions</a></li>
+<li class="toctree-l2 current" x-data="{ expanded: $el.classList.contains('current') ? true : false }"><a :class="{ 'expanded' : expanded }" @click="expanded = !expanded" class="current reference internal expandable" href="#">API documentation<button @click.prevent.stop="expanded = !expanded" type="button"><span class="sr-only"></span><svg fill="currentColor" height="18px" stroke="none" viewbox="0 0 24 24" width="18px" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></a><ul x-show="expanded">
+<li class="toctree-l3"><a class="reference internal" href="../domains/api_c_domain/">Directives in the C domain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../domains/api_cpp_domain/">Directives in the C++ domain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../domains/api_javascript_domain/">Directives in the JavaScript domain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../domains/api_python_domain/">Directives in the Python domain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../domains/api_restructuredtext_domain/">Directives in the reStructuredText domain</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../blocks/">Blocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../generic/">Generic items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../images/">Images &amp; Figures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lists/">Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../really-long/">Really Long Page Title because we should test sidebar wrapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../structure/">Structural Elements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../structure/#structural-elements-2">Structural Elements 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tables/">Tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../typography/">Typography</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">This is a caption</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../placeholder-one/">Placeholder Page One</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../placeholder-two/">Placeholder Page Two</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../really-long-title/">This is just a page with a really long title for checking how the theme handles these situations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../long-page/">Long Page</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.sphinx-doc.org">External Link</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional "hidden" Pages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../placeholder-three/">Placeholder Page Three</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../placeholder-four/">Placeholder Page Four</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://sphinx-themes.org">Sphinx Theme Gallery</a></li>
+</ul>
+</nav>
+</div>
+</div>
+<button @click="showSidebar = false" class="absolute md:hidden right-4 top-4 rounded-sm opacity-70 transition-opacity hover:opacity-100" type="button">
+<svg class="h-4 w-4" fill="currentColor" height="24" stroke="none" viewbox="0 96 960 960" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M480 632 284 828q-11 11-28 11t-28-11q-11-11-11-28t11-28l196-196-196-196q-11-11-11-28t11-28q11-11 28-11t28 11l196 196 196-196q11-11 28-11t28 11q11 11 11 28t-11 28L536 576l196 196q11 11 11 28t-11 28q-11 11-28 11t-28-11L480 632Z"></path>
+</svg>
+</button>
+</aside>
+<main class="relative py-6 lg:gap-10 lg:py-8 xl:grid xl:grid-cols-[1fr_300px]">
+<div class="w-full min-w-0 mx-auto">
+<nav aria-label="breadcrumbs" class="flex items-center mb-4 space-x-1 text-sm text-muted-foreground">
+<a class="overflow-hidden text-ellipsis whitespace-nowrap hover:text-foreground" href="../../">
+<span class="hidden md:inline">Awesome</span>
+<svg aria-label="Home" class="md:hidden" fill="currentColor" height="18" stroke="none" viewbox="0 96 960 960" width="18" xmlns="http://www.w3.org/2000/svg">
+<path d="M240 856h120V616h240v240h120V496L480 316 240 496v360Zm-80 80V456l320-240 320 240v480H520V696h-80v240H160Zm320-350Z"></path>
+</svg>
+</a>
+<div class="mr-1">/</div><a class="hover:text-foreground overflow-hidden text-ellipsis whitespace-nowrap" href="../">Kitchen Sink</a>
+<div class="mr-1">/</div><span aria-current="page" class="font-medium text-foreground overflow-hidden text-ellipsis whitespace-nowrap">API documentation</span>
+</nav>
+<div id="content" role="main">
+<section id="api-documentation">
+<h1>API documentation<a class="headerlink" href="#api-documentation" title="Link to this heading"><span>#</span></a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../domains/api_c_domain/">Directives in the C domain</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../domains/api_cpp_domain/">Directives in the C++ domain</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../domains/api_javascript_domain/">Directives in the JavaScript domain</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../domains/api_python_domain/">Directives in the Python domain</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../domains/api_restructuredtext_domain/">Directives in the reStructuredText domain</a></li>
+</ul>
+</div>
+<section id="using-autodoc">
+<h2>Using autodoc<a class="headerlink" href="#using-autodoc" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#using-autodoc'"><span>#</span></a></h2>
+<p>Using Sphinx’s <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#module-sphinx.ext.autodoc" title="(in Sphinx v8.2.0)"><code class="xref any docutils literal notranslate"><span class="pre">sphinx.ext.autodoc</span></code></a> plugin, it is possible to auto-generate documentation of a Python module.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Avoid having in-function-signature type annotations with autodoc,
+by setting the following options:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span id="line-1"><span class="c1"># -- Options for autodoc ----------------------------------------------------</span>
+</span><span id="line-2"><span class="c1"># https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#configuration</span>
+</span><span id="line-3">
+</span><span id="line-4"><span class="c1"># Automatically extract typehints when specified and place them in</span>
+</span><span id="line-5"><span class="c1"># descriptions of the relevant function/method.</span>
+</span><span id="line-6"><span class="n">autodoc_typehints</span> <span class="o">=</span> <span class="s2">"description"</span>
+</span><span id="line-7">
+</span><span id="line-8"><span class="c1"># Don't show class signature with the class' name.</span>
+</span><span id="line-9"><span class="n">autodoc_class_signature</span> <span class="o">=</span> <span class="s2">"separated"</span>
+</span></code></pre></div>
+</div>
+</div>
+<p id="module-urllib.parse">Parse (absolute and relative) URLs.</p>
+<p>urlparse module is based upon the following RFC specifications.</p>
+<p>RFC 3986 (STD66): “Uniform Resource Identifiers” by T. Berners-Lee, R. Fielding
+and L.  Masinter, January 2005.</p>
+<p>RFC 2732 : “Format for Literal IPv6 Addresses in URL’s by R.Hinden, B.Carpenter
+and L.Masinter, December 1999.</p>
+<p>RFC 2396:  “Uniform Resource Identifiers (URI)”: Generic Syntax by T.
+Berners-Lee, R. Fielding, and L. Masinter, August 1998.</p>
+<p>RFC 2368: “The mailto URL scheme”, by P.Hoffman , L Masinter, J. Zawinski, July 1998.</p>
+<p>RFC 1808: “Relative Uniform Resource Locators”, by R. Fielding, UC Irvine, June
+1995.</p>
+<p>RFC 1738: “Uniform Resource Locators (URL)” by T. Berners-Lee, L. Masinter, M.
+McCahill, December 1994</p>
+<p>RFC 3986 is considered the current standard and any future changes to
+urlparse module should conform with it.  The urlparse module is
+currently not entirely compliant with this RFC due to defacto
+scenarios for parsing, and for backward compatibility purposes, some
+parsing quirks from older RFCs are retained. The testcases in
+test_urlparse.py provides a good indicator of parsing behavior.</p>
+<p>The WHATWG URL Parser spec should also be considered.  We are not compliant with
+it either due to existing user code API behavior expectations (Hyrum’s Law).
+It serves as a useful guide when making changes.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="urllib.parse.DefragResult">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">urllib.parse.</span></span><span class="sig-name descname"><span class="pre">DefragResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fragment</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/urllib/parse/#DefragResult"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#urllib.parse.DefragResult" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#urllib.parse.DefragResult'"><span>#</span></a></dt>
+<dd></dd></dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="urllib.parse.DefragResultBytes">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">urllib.parse.</span></span><span class="sig-name descname"><span class="pre">DefragResultBytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fragment</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/urllib/parse/#DefragResultBytes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#urllib.parse.DefragResultBytes" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#urllib.parse.DefragResultBytes'"><span>#</span></a></dt>
+<dd></dd></dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="urllib.parse.ParseResult">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">urllib.parse.</span></span><span class="sig-name descname"><span class="pre">ParseResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scheme</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">netloc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">query</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fragment</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/urllib/parse/#ParseResult"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#urllib.parse.ParseResult" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#urllib.parse.ParseResult'"><span>#</span></a></dt>
+<dd></dd></dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="urllib.parse.ParseResultBytes">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">urllib.parse.</span></span><span class="sig-name descname"><span class="pre">ParseResultBytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scheme</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">netloc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">query</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fragment</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/urllib/parse/#ParseResultBytes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#urllib.parse.ParseResultBytes" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#urllib.parse.ParseResultBytes'"><span>#</span></a></dt>
+<dd></dd></dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="urllib.parse.SplitResult">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">urllib.parse.</span></span><span class="sig-name descname"><span class="pre">SplitResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scheme</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">netloc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">query</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fragment</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/urllib/parse/#SplitResult"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#urllib.parse.SplitResult" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#urllib.parse.SplitResult'"><span>#</span></a></dt>
+<dd></dd></dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="urllib.parse.SplitResultBytes">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">urllib.parse.</span></span><span class="sig-name descname"><span class="pre">SplitResultBytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scheme</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">netloc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">query</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fragment</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/urllib/parse/#SplitResultBytes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#urllib.parse.SplitResultBytes" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#urllib.parse.SplitResultBytes'"><span>#</span></a></dt>
+<dd></dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="urllib.parse.parse_qs">
+<span class="sig-prename descclassname"><span class="pre">urllib.parse.</span></span><span class="sig-name descname"><span class="pre">parse_qs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keep_blank_values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strict_parsing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'utf-8'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">errors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'replace'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_num_fields</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">separator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'&amp;'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/urllib/parse/#parse_qs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#urllib.parse.parse_qs" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#urllib.parse.parse_qs'"><span>#</span></a></dt>
+<dd><p>Parse a query given as a string argument.</p>
+<p>Arguments:</p>
+<p>qs: percent-encoded query string to be parsed</p>
+<dl class="simple">
+<dt>keep_blank_values: flag indicating whether blank values in</dt><dd><p>percent-encoded queries should be treated as blank strings.
+A true value indicates that blanks should be retained as
+blank strings.  The default false value indicates that
+blank values are to be ignored and treated as if they were
+not included.</p>
+</dd>
+<dt>strict_parsing: flag indicating what to do with parsing errors.</dt><dd><p>If false (the default), errors are silently ignored.
+If true, errors raise a ValueError exception.</p>
+</dd>
+<dt>encoding and errors: specify how to decode percent-encoded sequences</dt><dd><p>into Unicode characters, as accepted by the bytes.decode() method.</p>
+</dd>
+<dt>max_num_fields: int. If set, then throws a ValueError if there</dt><dd><p>are more than n fields read by parse_qsl().</p>
+</dd>
+<dt>separator: str. The symbol to use for separating the query arguments.</dt><dd><p>Defaults to &amp;.</p>
+</dd>
+</dl>
+<p>Returns a dictionary.</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="urllib.parse.parse_qsl">
+<span class="sig-prename descclassname"><span class="pre">urllib.parse.</span></span><span class="sig-name descname"><span class="pre">parse_qsl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keep_blank_values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strict_parsing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'utf-8'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">errors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'replace'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_num_fields</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">separator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'&amp;'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/urllib/parse/#parse_qsl"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#urllib.parse.parse_qsl" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#urllib.parse.parse_qsl'"><span>#</span></a></dt>
+<dd><p>Parse a query given as a string argument.</p>
+<p>Arguments:</p>
+<p>qs: percent-encoded query string to be parsed</p>
+<dl class="simple">
+<dt>keep_blank_values: flag indicating whether blank values in</dt><dd><p>percent-encoded queries should be treated as blank strings.
+A true value indicates that blanks should be retained as blank
+strings.  The default false value indicates that blank values
+are to be ignored and treated as if they were  not included.</p>
+</dd>
+<dt>strict_parsing: flag indicating what to do with parsing errors. If</dt><dd><p>false (the default), errors are silently ignored. If true,
+errors raise a ValueError exception.</p>
+</dd>
+<dt>encoding and errors: specify how to decode percent-encoded sequences</dt><dd><p>into Unicode characters, as accepted by the bytes.decode() method.</p>
+</dd>
+<dt>max_num_fields: int. If set, then throws a ValueError</dt><dd><p>if there are more than n fields read by parse_qsl().</p>
+</dd>
+<dt>separator: str. The symbol to use for separating the query arguments.</dt><dd><p>Defaults to &amp;.</p>
+</dd>
+</dl>
+<p>Returns a list, as G-d intended.</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="urllib.parse.quote">
+<span class="sig-prename descclassname"><span class="pre">urllib.parse.</span></span><span class="sig-name descname"><span class="pre">quote</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">'abc</span> <span class="pre">def'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="s"><span class="pre">'abc%20def'</span></span></span></span><a class="reference internal" href="../../_modules/urllib/parse/#quote"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#urllib.parse.quote" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#urllib.parse.quote'"><span>#</span></a></dt>
+<dd><p>Each part of a URL, e.g. the path info, the query, etc., has a
+different set of reserved characters that must be quoted. The
+quote function offers a cautious (not minimal) way to quote a
+string for most of these parts.</p>
+<p>RFC 3986 Uniform Resource Identifier (URI): Generic Syntax lists
+the following (un)reserved characters.</p>
+<p>unreserved    = ALPHA / DIGIT / “-” / “.” / “_” / “~”
+reserved      = gen-delims / sub-delims
+gen-delims    = “:” / “/” / “?” / “#” / “[” / “]” / “@”
+sub-delims    = “!” / “$” / “&amp;” / “’” / “(” / “)”</p>
+<blockquote>
+<div><p>/ “*” / “+” / “,” / “;” / “=”</p>
+</div></blockquote>
+<p>Each of the reserved characters is reserved in some component of a URL,
+but not necessarily in all of them.</p>
+<p>The quote function %-escapes all characters that are neither in the
+unreserved chars (“always safe”) nor the additional chars set via the
+safe arg.</p>
+<p>The default for the safe arg is ‘/’. The character is reserved, but in
+typical usage the quote function is being called on a path where the
+existing slash characters are to be preserved.</p>
+<p>Python 3.7 updates from using RFC 2396 to RFC 3986 to quote URL strings.
+Now, “~” is included in the set of unreserved characters.</p>
+<p>string and safe may be either str or bytes objects. encoding and errors
+must not be specified if string is a bytes object.</p>
+<p>The optional encoding and errors parameters specify how to deal with
+non-ASCII characters, as accepted by the str.encode method.
+By default, encoding=’utf-8’ (characters are encoded with UTF-8), and
+errors=’strict’ (unsupported characters raise a UnicodeEncodeError).</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="urllib.parse.quote_from_bytes">
+<span class="sig-prename descclassname"><span class="pre">urllib.parse.</span></span><span class="sig-name descname"><span class="pre">quote_from_bytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">safe</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'/'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/urllib/parse/#quote_from_bytes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#urllib.parse.quote_from_bytes" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#urllib.parse.quote_from_bytes'"><span>#</span></a></dt>
+<dd><p>Like quote(), but accepts a bytes object rather than a str, and does
+not perform string-to-bytes encoding.  It always returns an ASCII string.
+quote_from_bytes(b’abc def?’) -&gt; ‘abc%20def%3f’</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="urllib.parse.quote_plus">
+<span class="sig-prename descclassname"><span class="pre">urllib.parse.</span></span><span class="sig-name descname"><span class="pre">quote_plus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">safe</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">errors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/urllib/parse/#quote_plus"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#urllib.parse.quote_plus" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#urllib.parse.quote_plus'"><span>#</span></a></dt>
+<dd><p>Like quote(), but also replace ‘ ‘ with ‘+’, as required for quoting
+HTML form values. Plus signs in the original string are escaped unless
+they are included in safe. It also does not have safe default to ‘/’.</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="urllib.parse.unquote">
+<span class="sig-prename descclassname"><span class="pre">urllib.parse.</span></span><span class="sig-name descname"><span class="pre">unquote</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'utf-8'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">errors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'replace'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/urllib/parse/#unquote"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#urllib.parse.unquote" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#urllib.parse.unquote'"><span>#</span></a></dt>
+<dd><p>Replace %xx escapes by their single-character equivalent. The optional
+encoding and errors parameters specify how to decode percent-encoded
+sequences into Unicode characters, as accepted by the bytes.decode()
+method.
+By default, percent-encoded sequences are decoded with UTF-8, and invalid
+sequences are replaced by a placeholder character.</p>
+<p>unquote(‘abc%20def’) -&gt; ‘abc def’.</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="urllib.parse.unquote_plus">
+<span class="sig-prename descclassname"><span class="pre">urllib.parse.</span></span><span class="sig-name descname"><span class="pre">unquote_plus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'utf-8'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">errors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'replace'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/urllib/parse/#unquote_plus"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#urllib.parse.unquote_plus" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#urllib.parse.unquote_plus'"><span>#</span></a></dt>
+<dd><p>Like unquote(), but also replace plus signs by spaces, as required for
+unquoting HTML form values.</p>
+<p>unquote_plus(‘%7e/abc+def’) -&gt; ‘~/abc def’</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="urllib.parse.unquote_to_bytes">
+<span class="sig-prename descclassname"><span class="pre">urllib.parse.</span></span><span class="sig-name descname"><span class="pre">unquote_to_bytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">'abc%20def'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">b'abc</span> <span class="pre">def'.</span></span></span><a class="reference internal" href="../../_modules/urllib/parse/#unquote_to_bytes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#urllib.parse.unquote_to_bytes" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#urllib.parse.unquote_to_bytes'"><span>#</span></a></dt>
+<dd></dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="urllib.parse.urldefrag">
+<span class="sig-prename descclassname"><span class="pre">urllib.parse.</span></span><span class="sig-name descname"><span class="pre">urldefrag</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/urllib/parse/#urldefrag"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#urllib.parse.urldefrag" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#urllib.parse.urldefrag'"><span>#</span></a></dt>
+<dd><p>Removes any existing fragment from URL.</p>
+<p>Returns a tuple of the defragmented URL and the fragment.  If
+the URL contained no fragments, the second element is the
+empty string.</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="urllib.parse.urlencode">
+<span class="sig-prename descclassname"><span class="pre">urllib.parse.</span></span><span class="sig-name descname"><span class="pre">urlencode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">doseq=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">safe=''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">errors=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quote_via=&lt;function</span> <span class="pre">quote_plus&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/urllib/parse/#urlencode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#urllib.parse.urlencode" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#urllib.parse.urlencode'"><span>#</span></a></dt>
+<dd><p>Encode a dict or sequence of two-element tuples into a URL query string.</p>
+<p>If any values in the query arg are sequences and doseq is true, each
+sequence element is converted to a separate parameter.</p>
+<p>If the query arg is a sequence of two-element tuples, the order of the
+parameters in the output will match the order of parameters in the
+input.</p>
+<p>The components of a query arg may each be either a string or a bytes type.</p>
+<p>The safe, encoding, and errors parameters are passed down to the function
+specified by quote_via (encoding and errors only if a component is a str).</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="urllib.parse.urljoin">
+<span class="sig-prename descclassname"><span class="pre">urllib.parse.</span></span><span class="sig-name descname"><span class="pre">urljoin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allow_fragments</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/urllib/parse/#urljoin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#urllib.parse.urljoin" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#urllib.parse.urljoin'"><span>#</span></a></dt>
+<dd><p>Join a base URL and a possibly relative URL to form an absolute
+interpretation of the latter.</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="urllib.parse.urlparse">
+<span class="sig-prename descclassname"><span class="pre">urllib.parse.</span></span><span class="sig-name descname"><span class="pre">urlparse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scheme</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allow_fragments</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/urllib/parse/#urlparse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#urllib.parse.urlparse" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#urllib.parse.urlparse'"><span>#</span></a></dt>
+<dd><p>Parse a URL into 6 components:
+&lt;scheme&gt;://&lt;netloc&gt;/&lt;path&gt;;&lt;params&gt;?&lt;query&gt;#&lt;fragment&gt;</p>
+<p>The result is a named 6-tuple with fields corresponding to the
+above. It is either a ParseResult or ParseResultBytes object,
+depending on the type of the url parameter.</p>
+<p>The username, password, hostname, and port sub-components of netloc
+can also be accessed as attributes of the returned object.</p>
+<p>The scheme argument provides the default value of the scheme
+component when no scheme is found in url.</p>
+<p>If allow_fragments is False, no attempt is made to separate the
+fragment component from the previous component, which can be either
+path or query.</p>
+<p>Note that % escapes are not expanded.</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="urllib.parse.urlsplit">
+<span class="sig-prename descclassname"><span class="pre">urllib.parse.</span></span><span class="sig-name descname"><span class="pre">urlsplit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scheme</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allow_fragments</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/urllib/parse/#urlsplit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#urllib.parse.urlsplit" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#urllib.parse.urlsplit'"><span>#</span></a></dt>
+<dd><p>Parse a URL into 5 components:
+&lt;scheme&gt;://&lt;netloc&gt;/&lt;path&gt;?&lt;query&gt;#&lt;fragment&gt;</p>
+<p>The result is a named 5-tuple with fields corresponding to the
+above. It is either a SplitResult or SplitResultBytes object,
+depending on the type of the url parameter.</p>
+<p>The username, password, hostname, and port sub-components of netloc
+can also be accessed as attributes of the returned object.</p>
+<p>The scheme argument provides the default value of the scheme
+component when no scheme is found in url.</p>
+<p>If allow_fragments is False, no attempt is made to separate the
+fragment component from the previous component, which can be either
+path or query.</p>
+<p>Note that % escapes are not expanded.</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="urllib.parse.urlunparse">
+<span class="sig-prename descclassname"><span class="pre">urllib.parse.</span></span><span class="sig-name descname"><span class="pre">urlunparse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">components</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/urllib/parse/#urlunparse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#urllib.parse.urlunparse" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#urllib.parse.urlunparse'"><span>#</span></a></dt>
+<dd><p>Put a parsed URL back together again.  This may result in a
+slightly different, but equivalent URL, if the URL that was parsed
+originally had redundant delimiters, e.g. a ? with an empty query
+(the draft states that these are equivalent).</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="urllib.parse.urlunsplit">
+<span class="sig-prename descclassname"><span class="pre">urllib.parse.</span></span><span class="sig-name descname"><span class="pre">urlunsplit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">components</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/urllib/parse/#urlunsplit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#urllib.parse.urlunsplit" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#urllib.parse.urlunsplit'"><span>#</span></a></dt>
+<dd><p>Combine the elements of a tuple as returned by urlsplit() into a
+complete URL as a string. The data argument can be any five-item iterable.
+This may result in a slightly different, but equivalent URL, if the URL that
+was parsed originally had unnecessary delimiters (for example, a ? with an
+empty query; the RFC states that these are equivalent).</p>
+</dd></dl>
+</section>
+</section>
+</div></div><aside class="hidden text-sm xl:block" id="right-sidebar">
+<div class="sticky top-16 -mt-10 max-h-[calc(100vh-5rem)] overflow-y-auto pt-6 space-y-2"><p class="font-medium">On this page</p>
+<ul>
+<li><a :data-current="activeSection === '#using-autodoc'" class="reference internal" href="#using-autodoc">Using autodoc</a><ul>
+<li><a :data-current="activeSection === '#urllib.parse.DefragResult'" class="reference internal" href="#urllib.parse.DefragResult"><code class="docutils literal notranslate"><span class="pre">DefragResult</span></code></a></li>
+<li><a :data-current="activeSection === '#urllib.parse.DefragResultBytes'" class="reference internal" href="#urllib.parse.DefragResultBytes"><code class="docutils literal notranslate"><span class="pre">DefragResultBytes</span></code></a></li>
+<li><a :data-current="activeSection === '#urllib.parse.ParseResult'" class="reference internal" href="#urllib.parse.ParseResult"><code class="docutils literal notranslate"><span class="pre">ParseResult</span></code></a></li>
+<li><a :data-current="activeSection === '#urllib.parse.ParseResultBytes'" class="reference internal" href="#urllib.parse.ParseResultBytes"><code class="docutils literal notranslate"><span class="pre">ParseResultBytes</span></code></a></li>
+<li><a :data-current="activeSection === '#urllib.parse.SplitResult'" class="reference internal" href="#urllib.parse.SplitResult"><code class="docutils literal notranslate"><span class="pre">SplitResult</span></code></a></li>
+<li><a :data-current="activeSection === '#urllib.parse.SplitResultBytes'" class="reference internal" href="#urllib.parse.SplitResultBytes"><code class="docutils literal notranslate"><span class="pre">SplitResultBytes</span></code></a></li>
+<li><a :data-current="activeSection === '#urllib.parse.parse_qs'" class="reference internal" href="#urllib.parse.parse_qs"><code class="docutils literal notranslate"><span class="pre">parse_qs()</span></code></a></li>
+<li><a :data-current="activeSection === '#urllib.parse.parse_qsl'" class="reference internal" href="#urllib.parse.parse_qsl"><code class="docutils literal notranslate"><span class="pre">parse_qsl()</span></code></a></li>
+<li><a :data-current="activeSection === '#urllib.parse.quote'" class="reference internal" href="#urllib.parse.quote"><code class="docutils literal notranslate"><span class="pre">quote()</span></code></a></li>
+<li><a :data-current="activeSection === '#urllib.parse.quote_from_bytes'" class="reference internal" href="#urllib.parse.quote_from_bytes"><code class="docutils literal notranslate"><span class="pre">quote_from_bytes()</span></code></a></li>
+<li><a :data-current="activeSection === '#urllib.parse.quote_plus'" class="reference internal" href="#urllib.parse.quote_plus"><code class="docutils literal notranslate"><span class="pre">quote_plus()</span></code></a></li>
+<li><a :data-current="activeSection === '#urllib.parse.unquote'" class="reference internal" href="#urllib.parse.unquote"><code class="docutils literal notranslate"><span class="pre">unquote()</span></code></a></li>
+<li><a :data-current="activeSection === '#urllib.parse.unquote_plus'" class="reference internal" href="#urllib.parse.unquote_plus"><code class="docutils literal notranslate"><span class="pre">unquote_plus()</span></code></a></li>
+<li><a :data-current="activeSection === '#urllib.parse.unquote_to_bytes'" class="reference internal" href="#urllib.parse.unquote_to_bytes"><code class="docutils literal notranslate"><span class="pre">unquote_to_bytes()</span></code></a></li>
+<li><a :data-current="activeSection === '#urllib.parse.urldefrag'" class="reference internal" href="#urllib.parse.urldefrag"><code class="docutils literal notranslate"><span class="pre">urldefrag()</span></code></a></li>
+<li><a :data-current="activeSection === '#urllib.parse.urlencode'" class="reference internal" href="#urllib.parse.urlencode"><code class="docutils literal notranslate"><span class="pre">urlencode()</span></code></a></li>
+<li><a :data-current="activeSection === '#urllib.parse.urljoin'" class="reference internal" href="#urllib.parse.urljoin"><code class="docutils literal notranslate"><span class="pre">urljoin()</span></code></a></li>
+<li><a :data-current="activeSection === '#urllib.parse.urlparse'" class="reference internal" href="#urllib.parse.urlparse"><code class="docutils literal notranslate"><span class="pre">urlparse()</span></code></a></li>
+<li><a :data-current="activeSection === '#urllib.parse.urlsplit'" class="reference internal" href="#urllib.parse.urlsplit"><code class="docutils literal notranslate"><span class="pre">urlsplit()</span></code></a></li>
+<li><a :data-current="activeSection === '#urllib.parse.urlunparse'" class="reference internal" href="#urllib.parse.urlunparse"><code class="docutils literal notranslate"><span class="pre">urlunparse()</span></code></a></li>
+<li><a :data-current="activeSection === '#urllib.parse.urlunsplit'" class="reference internal" href="#urllib.parse.urlunsplit"><code class="docutils literal notranslate"><span class="pre">urlunsplit()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+</aside>
+</main>
+</div>
+</div><footer class="py-6 border-t border-border md:py-0">
+<div class="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
+<div class="flex flex-col items-center gap-4 px-8 md:flex-row md:gap-2 md:px-0">
+<p class="text-sm leading-loose text-center text-muted-foreground md:text-left">© 2021, Pradyun Gedam Built with <a class="font-medium underline underline-offset-4" href="https://www.sphinx-doc.org" rel="noreferrer">Sphinx 8.1.3</a></p>
+</div>
+</div>
+</footer>
+</div>
+<script src="../../_static/documentation_options.js?v=187304be"></script>
+<script src="../../_static/doctools.js?v=9bcbadda"></script>
+<script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+<script defer="defer" src="../../_static/theme.js?v=073f68d9"></script>
+</body>
+</html>
