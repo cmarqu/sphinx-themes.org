@@ -5,31 +5,31 @@
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../../../genindex/" /><link rel="search" title="Search" href="../../../search/" /><link rel="next" title="Directives in the JavaScript domain" href="../api_javascript_domain/" /><link rel="prev" title="Directives in the C domain" href="../api_c_domain/" />
 
-    <!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
+    <!-- Generated with Sphinx 8.2.3 and Furo 2025.07.19 -->
         <title>Directives in the C++ domain - Furo</title>
-      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=354aac6f" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?v=302659d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=d111a655" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=25af2a20" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?v=8dab3a3b" />
     
     
 
 
 <style>
   body {
-    --color-code-background: #f8f8f8;
-  --color-code-foreground: black;
+    --color-code-background: #f2f2f2;
+  --color-code-foreground: #1e1e1e;
   
   }
   @media not print {
     body[data-theme="dark"] {
-      --color-code-background: #202020;
-  --color-code-foreground: #d0d0d0;
+      --color-code-background: #2b2b2b;
+  --color-code-foreground: #f8f8f2;
   
     }
     @media (prefers-color-scheme: dark) {
       body:not([data-theme="light"]) {
-        --color-code-background: #202020;
-  --color-code-foreground: #d0d0d0;
+        --color-code-background: #2b2b2b;
+  --color-code-foreground: #f8f8f2;
   
       }
     }
@@ -189,7 +189,6 @@
       
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../../../">
   
-  
   <span class="sidebar-brand-text">Furo</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../../search/" role="search">
@@ -276,37 +275,37 @@
         <article role="main" id="furo-main-content">
           <section id="directives-in-the-c-domain">
 <h1>Directives in the C++ domain<a class="headerlink" href="#directives-in-the-c-domain" title="Link to this heading">¶</a></h1>
-<p>The domain name is <code class="docutils literal notranslate"><span class="pre">cpp</span></code>, see <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/domains/cpp.html">https://www.sphinx-doc.org/en/master/usage/domains/cpp.html</a>.</p>
+<p>The domain name is <code class="docutils literal notranslate"><span class="pre">cpp</span></code>. See <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/domains/cpp.html">https://www.sphinx-doc.org/en/master/usage/domains/cpp.html</a>.</p>
 <p>The following directives are available. All declarations can start with a
-visibility statement (<code class="docutils literal notranslate"><span class="pre">public</span></code>, <code class="docutils literal notranslate"><span class="pre">private</span></code> or <code class="docutils literal notranslate"><span class="pre">protected</span></code>).</p>
+visibility statement, <code class="docutils literal notranslate"><span class="pre">public</span></code>, <code class="docutils literal notranslate"><span class="pre">private</span></code>, or <code class="docutils literal notranslate"><span class="pre">protected</span></code>.</p>
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv47MyClass">
 <span id="_CPPv37MyClass"></span><span id="_CPPv27MyClass"></span><span id="MyClass"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">MyClass</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">MyBase</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">MyOtherBase</span></span><a class="headerlink" href="#_CPPv47MyClass" title="Link to this definition">¶</a><br /></dt>
-<dd><p>The <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">cpp:class::</span></code> directive, showing a class/struct.</p>
+<dd><p>The <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">cpp:class::</span></code> directive, showing a class or struct.</p>
 </dd></dl>
 
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4N10OuterScope8MyClass2E">
 <span id="_CPPv3N10OuterScope8MyClass2E"></span><span id="_CPPv2N10OuterScope8MyClass2E"></span><span id="OuterScope::MyClass2"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">OuterScope</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">MyClass2</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">MyBase</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">MyOtherBase</span></span><a class="headerlink" href="#_CPPv4N10OuterScope8MyClass2E" title="Link to this definition">¶</a><br /></dt>
-<dd><p>The <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">cpp:class::</span></code> directive, showing a class/struct.</p>
+<dd><p>The <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">cpp:class::</span></code> directive, showing a class or struct.</p>
 </dd></dl>
 
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4I0_NSt6size_tEENSt5arrayE">
 <span id="_CPPv3I0_NSt6size_tEENSt5arrayE"></span><span id="_CPPv2I0_NSt6size_tEENSt5arrayE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">T</span></span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">N</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">array</span></span></span><a class="headerlink" href="#_CPPv4I0_NSt6size_tEENSt5arrayE" title="Link to this definition">¶</a><br /></dt>
-<dd><p>The <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">cpp:class::</span></code> directive, showing a class/struct.</p>
+<dd><p>The <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">cpp:class::</span></code> directive, showing a class or struct.</p>
 </dd></dl>
 
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4IENSt6array2IbXL256EEEE">
 <span id="_CPPv3IENSt6array2IbXL256EEEE"></span><span id="_CPPv2IENSt6array2IbX256EEE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">array2</span></span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">bool</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">256</span></span><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4IENSt6array2IbXL256EEEE" title="Link to this definition">¶</a><br /></dt>
-<dd><p>The <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">cpp:class::</span></code> directive, showing a class/struct.</p>
+<dd><p>The <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">cpp:class::</span></code> directive, showing a class or struct.</p>
 </dd></dl>
 
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4I0ENSt6array3I1TXL42EEEE">
 <span id="_CPPv3I0ENSt6array3I1TXL42EEEE"></span><span id="_CPPv2I0ENSt6array3I1TX42EEE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">T</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">array3</span></span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0ENSt6array3I1TXL42EEEE" title="std::array3&lt;T, 42&gt;::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">42</span></span><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4I0ENSt6array3I1TXL42EEEE" title="Link to this definition">¶</a><br /></dt>
-<dd><p>The <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">cpp:class::</span></code> directive, showing a class/struct.</p>
+<dd><p>The <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">cpp:class::</span></code> directive, showing a class or struct.</p>
 </dd></dl>
 
 <dl class="cpp function">
@@ -336,7 +335,7 @@ visibility statement (<code class="docutils literal notranslate"><span class="pr
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv421my_constexpr_functionAL2E_RNSt6stringE">
 <span id="_CPPv321my_constexpr_functionAL2E_RNSt6stringE"></span><span id="_CPPv221my_constexpr_functionA2_RNSt6stringE"></span><span id="my_constexpr_function__ssRACE"></span><span class="k"><span class="pre">constexpr</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">my_constexpr_function</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">bar</span></span><span class="p"><span class="pre">[</span></span><span class="m"><span class="pre">2</span></span><span class="p"><span class="pre">]</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><a class="headerlink" href="#_CPPv421my_constexpr_functionAL2E_RNSt6stringE" title="Link to this definition">¶</a><br /></dt>
-<dd><p>The <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">cpp:function::</span></code> directive, showing a constexpr function.</p>
+<dd><p>The <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">cpp:function::</span></code> directive, showing a <code class="docutils literal notranslate"><span class="pre">constexpr</span></code> function.</p>
 </dd></dl>
 
 <dl class="cpp function">
@@ -384,7 +383,7 @@ visibility statement (<code class="docutils literal notranslate"><span class="pr
 <dl class="cpp type">
 <dt class="sig sig-object cpp" id="_CPPv410MyListType">
 <span id="_CPPv310MyListType"></span><span id="_CPPv210MyListType"></span><span id="MyListType"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">int</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">MyListType</span></span></span><a class="headerlink" href="#_CPPv410MyListType" title="Link to this definition">¶</a><br /></dt>
-<dd><p>The <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">cpp:type::</span></code> directive, showing a typedef-like declaration of a type.</p>
+<dd><p>The <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">cpp:type::</span></code> directive, showing a <code class="docutils literal notranslate"><span class="pre">typedef</span></code>-like declaration of a type.</p>
 </dd></dl>
 
 <dl class="cpp type">
@@ -402,7 +401,7 @@ visibility statement (<code class="docutils literal notranslate"><span class="pr
 <dl class="cpp type">
 <dt class="sig sig-object cpp" id="_CPPv4I0E20MyTemplatedTypeAlias">
 <span id="_CPPv3I0E20MyTemplatedTypeAlias"></span><span id="_CPPv2I0E20MyTemplatedTypeAlias"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">T</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">MyTemplatedTypeAlias</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0E20MyTemplatedTypeAlias" title="MyTemplatedTypeAlias::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4I0E20MyTemplatedTypeAlias" title="Link to this definition">¶</a><br /></dt>
-<dd><p>The <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">cpp:type::</span></code> directive, showing a templated type alias can also be</p>
+<dd><p>The <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">cpp:type::</span></code> directive, showing a templated type alias.</p>
 </dd></dl>
 
 <dl class="cpp enum">
@@ -565,6 +564,6 @@ visibility statement (<code class="docutils literal notranslate"><span class="pr
 </div><script src="../../../_static/documentation_options.js?v=187304be"></script>
     <script src="../../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../../_static/scripts/furo.js?v=5fa4622c"></script>
+    <script src="../../../_static/scripts/furo.js?v=46bd48cc"></script>
     </body>
 </html>
